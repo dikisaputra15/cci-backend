@@ -30,6 +30,7 @@ return new class extends Migration
             $table->integer('number_of_incident')->nullable();
             $table->integer('number_of_injuries')->nullable();
             $table->integer('number_of_fatalities')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

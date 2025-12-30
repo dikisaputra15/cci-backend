@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('administrative_level_2_id')->constrained('administrative_level2s')->cascadeOnDelete();
             $table->foreignId('administrative_level_3_id')->constrained('administrative_level3s')->cascadeOnDelete();
             $table->string('name');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('actor_type_id')->constrained('actor_types')->cascadeOnDelete();
             $table->string('name');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
