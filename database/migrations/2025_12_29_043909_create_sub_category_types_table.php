@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('sub_category_types', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
             $table->foreignId('category_type_id')->constrained('category_types')->cascadeOnDelete();
             $table->string('name');
             $table->softDeletes();

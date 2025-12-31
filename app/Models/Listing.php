@@ -47,4 +47,9 @@ class Listing extends Model
     {
         return $this->belongsTo(TargetType::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

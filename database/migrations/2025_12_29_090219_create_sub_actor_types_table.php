@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('sub_actor_types', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('actor_id')->constrained('actors')->cascadeOnDelete();
             $table->foreignId('actor_type_id')->constrained('actor_types')->cascadeOnDelete();
             $table->string('name');
             $table->softDeletes();

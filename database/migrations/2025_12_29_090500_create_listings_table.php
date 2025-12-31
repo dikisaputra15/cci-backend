@@ -13,14 +13,25 @@ return new class extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('user_id')->constrained('users');
             $table->foreignId('country_id')->constrained('countries')->cascadeOnDelete();
             $table->foreignId('administrative_level_1_id')->nullable()->constrained('administrative_level1s');
             $table->foreignId('administrative_level_2_id')->nullable()->constrained('administrative_level2s');
             $table->foreignId('administrative_level_3_id')->nullable()->constrained('administrative_level3s');
             $table->foreignId('administrative_level_4_id')->nullable()->constrained('administrative_level4s');
-            $table->foreignId('sub_category_type_id')->constrained('sub_category_types');
+
+            $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
+            $table->foreignId('category_type_id')->nullable()->constrained('category_types');
+            $table->foreignId('sub_category_type_id')->nullable()->nullable()->constrained('sub_category_types');
+
+            $table->foreignId('actor_id')->nullable()->constrained('actors')->cascadeOnDelete();
+            $table->foreignId('actor_type_id')->nullable()->constrained('actor_types');
             $table->foreignId('sub_actor_type_id')->nullable()->constrained('sub_actor_types');
+
+            $table->foreignId('target_id')->nullable()->constrained('targets')->cascadeOnDelete();
             $table->foreignId('target_type_id')->nullable()->constrained('target_types');
+
             $table->string('listing_name');
             $table->datetime('listing_date');
             $table->text('additional_info')->nullable();
