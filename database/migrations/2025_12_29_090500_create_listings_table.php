@@ -36,11 +36,15 @@ return new class extends Migration
             $table->datetime('listing_date');
             $table->text('additional_info')->nullable();
             $table->text('address')->nullable();
+            $table->decimal('latitude', 10, 7)->nullable();
+            $table->decimal('longitude', 10, 7)->nullable();
             $table->text('description')->nullable();
             $table->text('issue')->nullable();
             $table->integer('number_of_incident')->nullable();
             $table->integer('number_of_injuries')->nullable();
             $table->integer('number_of_fatalities')->nullable();
+            $table->string('photo')->nullable();
+            $table->string('icon')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

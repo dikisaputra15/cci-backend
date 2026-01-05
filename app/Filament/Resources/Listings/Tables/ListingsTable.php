@@ -9,6 +9,7 @@ use Filament\Actions\ForceDeleteBulkAction;
 use Filament\Actions\RestoreBulkAction;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
+use Filament\Tables\Columns\TextColumn;
 
 class ListingsTable
 {
@@ -16,7 +17,8 @@ class ListingsTable
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('listing_name')->searchable(),
+                TextColumn::make('listing_date'),
             ])
             ->filters([
                 TrashedFilter::make(),
